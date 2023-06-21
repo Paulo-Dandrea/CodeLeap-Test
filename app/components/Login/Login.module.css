@@ -29,6 +29,8 @@
   gap: .9rem;
 }
 
+/* these styles should be global */
+
 .modal-content input {
   border-radius: 8px;
   border: 1px solid #777777 ;
@@ -50,16 +52,6 @@
 .button-container {
   margin-left: auto;
 }
-
-.modal-content button {   
-  background-color: var(--clr-primary-400); 
-  border-radius: 8px;
-  color: white;
-  display: inline-block;
-  font-weight: 700;
-  padding: 5px 20px;
-}
-
 
  
 /* variables */

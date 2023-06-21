@@ -82,8 +82,9 @@ svg {
 
 :root {
   --clr-neutral-400: #dddddd;
-
   --clr-primary-400: #7695ec;
+  --clr-alert-400: #ff5151;
+  --clr-action-400: #47b960;
 }
 
 html,
