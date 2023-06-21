@@ -74,7 +74,7 @@ svg {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-} 
+}
 
 /** ============================================
  *! RESET END
@@ -88,11 +88,10 @@ svg {
 
 html,
 body {
-  font-family: system-ui, sans-serif;
+  font-family: roboto;
 }
 
 button {
-  color: white;
-  padding: 0 15px;
-  border-radius: 5px;
+  border: none;
+  cursor: pointer;
 }

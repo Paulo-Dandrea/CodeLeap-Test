@@ -16,12 +16,13 @@ const Login = () => {
   };
 
   return (
-    <div className="modal">
-      <div className="modal-content">
+    <div className={styles.modal}>
+      <div className={styles["modal-content"]}>
         <h2>Welcome to CodeLeap network!</h2>
         <form>
-          <div className={styles["form-group"]}>
-            <label htmlFor="username">Please enter your username:</label>
+          <div>
+            <label htmlFor="username">Please enter your username</label>
+            <br />
             <input
               type="text"
               id="username"
@@ -29,6 +30,8 @@ const Login = () => {
               placeholder="John doe"
               onChange={handleUsernameChange}
             />
+          </div>
+          <div className={styles["button-container"]}>
             <button type="button" onClick={handleLogin} disabled={!username}>
               ENTER
             </button>
