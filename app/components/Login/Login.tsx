@@ -7,9 +7,10 @@ import { useSelector, useDispatch, authSlice } from "@/lib/redux";
 const Login = () => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector((state) => state.auth.isLoogedIn);
-  console.log("isLoggedIn: ", isLoggedIn);
+//   const isLoggedIn = useSelector((state) => state.auth.isLoogedIn);
+//   console.log("isLoggedIn: ", isLoggedIn);
 
+  
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 

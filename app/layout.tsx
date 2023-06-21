@@ -16,7 +16,6 @@ export default function RootLayout(props: React.PropsWithChildren) {
           <section className={styles.container}>
             <Nav />
 
-            <Login />
 
             {/* <header className={styles.header}>
               <img src="/logo.svg" className={styles.logo} alt="logo" />
@@ -24,8 +23,6 @@ export default function RootLayout(props: React.PropsWithChildren) {
 
             {/* LEARNED: ALL APP pass through here. Here we could have nav and footers, etc */}
             <main className={styles.main}>{props.children}</main>
-
-        
           </section>
         </body>
       </html>
@@ -33,8 +30,8 @@ export default function RootLayout(props: React.PropsWithChildren) {
   );
 }
 
-
-    {/* <footer className={styles.footer}>
+{
+  /* <footer className={styles.footer}>
               <span>Learn </span>
               <a
                 className={styles.link}
@@ -71,4 +68,5 @@ export default function RootLayout(props: React.PropsWithChildren) {
               >
                 React Redux
               </a>
-            </footer> */}
+            </footer> */
+}
