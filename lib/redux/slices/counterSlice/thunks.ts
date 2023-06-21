@@ -22,8 +22,8 @@ export const incrementAsync = createAppAsyncThunk(
 
 export const getPosts = createAppAsyncThunk(
   'crud/getPosts',
-  async (amount: number) => {
-    const response = await fetchPosts(amount)
+  async () => {
+    const response = await fetchPosts()
     console.log('response: ', response);
 // TODO:
     // The value we return becomes the `fulfilled` action payload
