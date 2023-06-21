@@ -10,3 +10,4 @@ export async function POST(req: Request, res: Response) {
 
   return NextResponse.json({ data: amount })
 }
+

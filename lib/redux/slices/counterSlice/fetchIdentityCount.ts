@@ -10,3 +10,16 @@ export const fetchIdentityCount = async (
 
   return result
 }
+
+export const fetchPosts = async (
+  amount = 1
+): Promise<{ data: number }> => {
+  const response = await fetch('https://dev.codeleap.co.uk/careers/', {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+  })
+  const result = await response.json()
+  console.log('result: ', result);
+
+  return result
+}

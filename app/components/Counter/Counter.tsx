@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
 /* Core */
-import { useState } from 'react'
+import { useEffect, useState } from "react";
 
 /* Instruments */
 import {
@@ -11,13 +11,19 @@ import {
   selectCount,
   incrementAsync,
   incrementIfOddAsync,
-} from '@/lib/redux'
-import styles from './counter.module.css'
+  getPosts,
+} from "@/lib/redux";
+import styles from "./counter.module.css";
+import { fetchPosts } from "@/lib/redux/slices/counterSlice/fetchIdentityCount";
 
 export const Counter = () => {
-  const dispatch = useDispatch()
-  const count = useSelector(selectCount)
-  const [incrementAmount, setIncrementAmount] = useState(2)
+  const dispatch = useDispatch();
+  const count = useSelector(selectCount);
+  const [incrementAmount, setIncrementAmount] = useState(2);
+
+  // useEffect(() => {
+  //   fetchPosts().then((r) => console.log('r', r))
+  // }, [])
 
   return (
     <div>
@@ -65,7 +71,13 @@ export const Counter = () => {
         >
           Add If Odd
         </button>
+        <button
+          className={styles.button}
+          onClick={() => dispatch(getPosts(incrementAmount))}
+        >
+          Call API
+        </button>
       </div>
     </div>
-  )
-}
+  );
+};

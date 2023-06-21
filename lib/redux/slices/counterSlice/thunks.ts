@@ -1,6 +1,6 @@
 /* Instruments */
 import { createAppAsyncThunk } from '@/lib/redux/createAppAsyncThunk'
-import { fetchIdentityCount } from './fetchIdentityCount'
+import { fetchIdentityCount, fetchPosts } from './fetchIdentityCount'
 import { selectCount } from './selectors'
 import { counterSlice } from './counterSlice'
 import type { ReduxThunkAction } from '@/lib/redux'
@@ -15,6 +15,17 @@ export const incrementAsync = createAppAsyncThunk(
   async (amount: number) => {
     const response = await fetchIdentityCount(amount)
 
+    // The value we return becomes the `fulfilled` action payload
+    return response.data
+  }
+)
+
+export const getPosts = createAppAsyncThunk(
+  'crud/getPosts',
+  async (amount: number) => {
+    const response = await fetchPosts(amount)
+    console.log('response: ', response);
+// TODO:
     // The value we return becomes the `fulfilled` action payload
     return response.data
   }
