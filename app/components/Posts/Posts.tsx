@@ -5,10 +5,9 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 export const Posts = () => {
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const { isLoggedIn, userName } = useSelector((state) => state.auth);
   const router = useRouter();
   const dispatch = useDispatch();
-  console.log("isLoggedIn: ", isLoggedIn);
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -22,7 +21,7 @@ export const Posts = () => {
 
   return (
     <>
-      <h1 className="posts">POSTS</h1>
+      <h1 className="posts">POSTS from {userName}</h1>
       <button onClick={handleLogout}>Logout</button>
     </>
   );

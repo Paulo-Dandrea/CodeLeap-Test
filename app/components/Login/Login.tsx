@@ -12,7 +12,7 @@ const Login = () => {
   };
 
   const handleLogin = async () => {
-    dispatch(authSlice.actions.login());
+    dispatch(authSlice.actions.login(username));
   };
 
   return (

@@ -7,6 +7,7 @@ import { incrementAsync } from "./thunks";
 // TODO: add type
 const authState = {
   isLoggedIn: false,
+  userName: "",
 };
 
 // TODO: A auth file
@@ -15,11 +16,13 @@ export const authSlice = createSlice({
   name: "auth",
   initialState: authState,
   reducers: {
-    login: (state) => {
+    login: (state, action: PayloadAction<string>) => {
       state.isLoggedIn = true;
+      state.userName = action.payload;
     },
     logout: (state) => {
       state.isLoggedIn = false;
+      state.userName = ""; // TODO: remove if necessary    
     },
   },
 });
