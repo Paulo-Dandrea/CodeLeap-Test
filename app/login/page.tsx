@@ -5,9 +5,8 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function LoginPage() {
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const router = useRouter();
-  console.log("isLoggedIn: ", isLoggedIn);
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -17,7 +16,6 @@ export default function LoginPage() {
 
   return (
     <>
-      <h1>Login page</h1>
       <Login />
     </>
   );
