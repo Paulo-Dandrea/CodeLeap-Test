@@ -1,10 +1,12 @@
 /* Components */
-import { Providers } from '@/lib/providers'
-import { Nav } from './components/Nav'
+import { Providers } from "@/lib/providers";
+import { Nav } from "./components/Nav";
 
 /* Instruments */
-import styles from './styles/layout.module.css'
-import './styles/globals.css'
+import styles from "./styles/layout.module.css";
+import "./styles/globals.css";
+import Link from "next/link";
+import Login from "./components/Login/Login"; // TODO: check the best way to import
 
 export default function RootLayout(props: React.PropsWithChildren) {
   return (
@@ -14,13 +16,25 @@ export default function RootLayout(props: React.PropsWithChildren) {
           <section className={styles.container}>
             <Nav />
 
-            <header className={styles.header}>
-              <img src="/logo.svg" className={styles.logo} alt="logo" />
-            </header>
+            <Login />
 
+            {/* <header className={styles.header}>
+              <img src="/logo.svg" className={styles.logo} alt="logo" />
+            </header> */}
+
+            {/* LEARNED: ALL APP pass through here. Here we could have nav and footers, etc */}
             <main className={styles.main}>{props.children}</main>
 
-            <footer className={styles.footer}>
+        
+          </section>
+        </body>
+      </html>
+    </Providers>
+  );
+}
+
+
+    {/* <footer className={styles.footer}>
               <span>Learn </span>
               <a
                 className={styles.link}
@@ -57,10 +71,4 @@ export default function RootLayout(props: React.PropsWithChildren) {
               >
                 React Redux
               </a>
-            </footer>
-          </section>
-        </body>
-      </html>
-    </Providers>
-  )
-}
+            </footer> */}

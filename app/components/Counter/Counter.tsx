@@ -12,6 +12,7 @@ import {
   incrementAsync,
   incrementIfOddAsync,
   getPosts,
+  authSlice
 } from "@/lib/redux";
 import styles from "./counter.module.css";
 import { fetchPosts } from "@/lib/redux/slices/counterSlice/fetchIdentityCount";
@@ -76,6 +77,12 @@ export const Counter = () => {
           onClick={() => dispatch(getPosts(incrementAmount))}
         >
           Call API
+        </button>
+        <button
+          className={styles.button}
+          onClick={() => dispatch(authSlice.actions.login)}
+        >
+          Auth Slice
         </button>
       </div>
     </div>
