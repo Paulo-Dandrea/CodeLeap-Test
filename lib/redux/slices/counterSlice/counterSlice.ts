@@ -10,8 +10,6 @@ const authState = {
   userName: "",
 };
 
-// TODO: A auth file
-
 export const authSlice = createSlice({
   name: "auth",
   initialState: authState,
@@ -22,12 +20,11 @@ export const authSlice = createSlice({
     },
     logout: (state) => {
       state.isLoggedIn = false;
-      state.userName = ""; // TODO: remove if necessary    
+      state.userName = ""; 
     },
   },
 });
 
-/* Types */
 export interface CounterSliceState {
   value: number;
   status: "idle" | "loading" | "failed";

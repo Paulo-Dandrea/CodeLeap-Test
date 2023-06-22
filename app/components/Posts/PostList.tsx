@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getPosts } from "./api";
+import { deletePost, getPosts } from "./api";
 import { Post } from "./types";
 import { Card } from "../Card/Card";
 import { formatTimeAgo } from "@/lib/helpers";
@@ -9,11 +9,13 @@ import { DeleteModal } from "../Modal/Modal";
 interface PostProps {
     item: Post;
     editable?: boolean;
+    shouldGetPostsHandler: () => void;
 }
 
 const Post = ({
     item: { username, created_datetime, title, content, id },
     editable = false,
+    shouldGetPostsHandler,
 }: PostProps) => {
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
@@ -27,12 +29,14 @@ const Post = ({
     };
 
     const handleDeleteClick = () => {
-      console.log('id', id);
+        deletePost(id);
+        shouldGetPostsHandler();
+        setIsDeleteModalOpen(false);
     };
 
     return (
         <Card
-            title={title + (editable ? " (Editar)" : "")}
+            title={title}
             // idToBeEdited={editable ? id : undefined}
             handleDeleteModalOpen={
                 editable
@@ -51,8 +55,8 @@ const Post = ({
 
                 {isDeleteModalOpen && (
                     <DeleteModal
-                    handleCancelClick={handleCancelClick}
-                    handleDeleteClick={handleDeleteClick}
+                        handleCancelClick={handleCancelClick}
+                        handleDeleteClick={handleDeleteClick}
                     />
                 )}
             </div>
@@ -65,26 +69,40 @@ const Post = ({
 
 export const PostList = () => {
     const [posts, setPosts] = useState<Post[]>([]);
+    const [shouldgetPosts, setShouldGetPosts] = useState(false);
     const { userName } = useSelector((state) => state.auth);
 
     useEffect(() => {
         getPosts().then((posts) => setPosts(posts));
-    }, []);
+        setShouldGetPosts(false);
+    }, [shouldgetPosts]);
+
+    const shouldGetPostsHandler = () => {
+        setShouldGetPosts(true);
+    };
 
     return (
         <>
-            {posts.map((item) => {
-                const editable =
-                    userName.toUpperCase() ===
-                    item.username.toUpperCase();
-                return (
-                    <Post
-                        key={item.id}
-                        item={item}
-                        editable={editable}
-                    />
-                );
-            })}
+            {!posts.length ? (
+                // TODO: Loading component
+                <>Loading...</>
+            ) : (
+                posts.map((item) => {
+                    const editable =
+                        userName.toUpperCase() ===
+                        item.username.toUpperCase();
+                    return (
+                        <Post
+                            key={item.id}
+                            item={item}
+                            editable={editable}
+                            shouldGetPostsHandler={
+                                shouldGetPostsHandler
+                            }
+                        />
+                    );
+                })
+            )}
         </>
     );
 };

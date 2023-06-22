@@ -24,8 +24,7 @@ export const getPosts = createAppAsyncThunk(
   'crud/getPosts',
   async () => {
     const response = await fetchPosts()
-    console.log('response: ', response);
-// TODO:
+    
     // The value we return becomes the `fulfilled` action payload
     return response.data
   }

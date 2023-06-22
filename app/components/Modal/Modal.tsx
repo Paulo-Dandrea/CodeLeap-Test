@@ -16,10 +16,15 @@ export const Modal = ({ children }: ModalProps) => (
     </div>
 );
 
+interface DeleteModalProps {
+    handleCancelClick: () => void;
+    handleDeleteClick: () => void;
+}
+
 export const DeleteModal = ({
     handleCancelClick,
     handleDeleteClick,
-}) => {
+}: DeleteModalProps) => {
     return (
         <Modal>
             <div className="pb-1">
