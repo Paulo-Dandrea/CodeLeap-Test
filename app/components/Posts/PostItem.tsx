@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { shouldGetPostsSlice, useDispatch } from "@/lib/redux";
 import { deletePost } from "./api";
 import { Post } from "./types";
 import { Card } from "../Card/Card";
-import { DeleteModal, EditModal } from "../Modal/Modal";
+import { DeleteModal, EditModal } from "../Modal";
 import { formatTimeAgo } from "@/lib/helpers";
 
 interface PostProps {
@@ -19,18 +19,11 @@ export const PostItem = ({
 
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+    const [editedTitle, setEditedTitle] = useState("");
+    const [editedContent, setEditedContent] = useState("");
 
     const handleDeleteModalOpen = () => {
         setIsDeleteModalOpen(true);
-    };
-
-    const handleEditModalOpen = () => {
-        setIsEditModalOpen(true);
-    };
-
-    const handleCancelClick = () => {
-        setIsDeleteModalOpen(false);
-        setIsEditModalOpen(false);
     };
 
     const handleDeleteClick = () => {
@@ -39,14 +32,56 @@ export const PostItem = ({
         setIsDeleteModalOpen(false);
     };
 
-    const handleSaveClick = () => {
-        dispatch(shouldGetPostsSlice.actions.update());
+    const editMethods = {
+        handleEditModalOpen: () => {
+            setIsEditModalOpen(true);
+        },
+        handleTitleChange: (e: ChangeEvent<HTMLInputElement>) => {
+            setEditedTitle(e.target.value);
+        },
+        handleContentChange: (
+            e: ChangeEvent<HTMLTextAreaElement>
+        ) => {
+            setEditedContent(e.target.value);
+        },
+        handleSaveClick: () => {
+            console.log("editedTitle: ", editedTitle);
+            console.log("editedContent: ", editedContent);
+            console.log("id: ", id);
+            
+            
+            dispatch(shouldGetPostsSlice.actions.update());
+            setIsEditModalOpen(false);
+        },
+    };
+
+    // const handleEditModalOpen = () => {
+    //     setIsEditModalOpen(true);
+    // };
+
+    // const handleTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    //     setEditedTitle(e.target.value);
+    // };
+
+    // const handleContentChange = (
+    //     e: ChangeEvent<HTMLTextAreaElement>
+    // ) => {
+    //     setEditedContent(e.target.value);
+    // };
+
+    // const handleSaveClick = () => {
+    //     dispatch(shouldGetPostsSlice.actions.update());
+    //     setIsEditModalOpen(false);
+    // };
+
+    const handleCancelClick = () => {
+        setIsDeleteModalOpen(false);
         setIsEditModalOpen(false);
     };
 
     const modalOpeners = {
         handleDeleteModalOpen: () => handleDeleteModalOpen(),
-        handleEditModalOpen: () => handleEditModalOpen(),
+        handleEditModalOpen: () => editMethods.handleEditModalOpen(),
     };
 
     return (
@@ -70,8 +105,12 @@ export const PostItem = ({
 
                 {isEditModalOpen && (
                     <EditModal
+                        title={editedTitle}
+                        content={editedContent}
+                        handleTitleChange={editMethods.handleTitleChange}
+                        handleContentChange={editMethods.handleContentChange}
+                        handleSaveClick={editMethods.handleSaveClick}
                         handleCancelClick={handleCancelClick}
-                        handleSaveClick={handleSaveClick}
                     />
                 )}
             </div>
