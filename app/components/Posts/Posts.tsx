@@ -19,14 +19,14 @@ export const Posts = () => {
         }
     }, [isLoggedIn]);
 
-    const handleLogout = () => {
-        dispatch(authSlice.actions.logout());
-    };
+    // const handleLogout = () => {
+    //     dispatch(authSlice.actions.logout());
+    // };
 
     return (
         <div className={styles.container}>
-            <button onClick={handleLogout}>Logout</button>
-            <div>
+            {/* <button onClick={handleLogout}>Logout</button> */}
+            <div className="pb-1">
                 <div className={styles.header}>
                     <Heading text="CodeLeap Network" accent />
                 </div>
