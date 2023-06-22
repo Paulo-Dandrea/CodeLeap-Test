@@ -1,65 +1,57 @@
 import { useEffect, useState } from "react";
-import { Post } from "./types";
 import { getPosts } from "./api";
-import styles from "./PostList.module.css";
+import { Post } from "./types";
 import { Card } from "../Card/Card";
-import { Heading } from "../Heading/Heading";
-
-const formatTimeAgo = (dateString) => {
-  const date = new Date(dateString);
-  const now = new Date();
-  const minutesAgo = Math.floor((now - date) / 60000); // Calculate the difference in minutes
-
-  if (minutesAgo < 1) {
-    return 'just now';
-  } else if (minutesAgo === 1) {
-    return '1 minute ago';
-  } else {
-    return `${minutesAgo} minutes ago`;
-  }
-};
-
-
+import { formatTimeAgo } from "@/lib/helpers";
+import { useSelector } from "@/lib/redux";
 
 interface PostProps {
-  item: Post;
+    item: Post;
+    editable?: boolean;
 }
 
 const Post = ({
-  item: { username, created_datetime, title, content },
+    item: { username, created_datetime, title, content },
+    editable = false,
 }: PostProps) => {
-  return (
-    <Card title={title}>
-      {/* <div className={styles.card}> */}
-      {/* <Heading text={title} accent={true} /> */}
-      <div>
-        <div className="space-between">
-          <p>@{username}</p>
-          {/* Transform in minutes ago */}
-          <p>{formatTimeAgo(created_datetime)}</p>
-        </div>
-        <p className="content">{content}</p>
-      </div>
-
-      {/* </div> */}
-    </Card>
-  );
+    return (
+        <Card title={title + (editable ? " (Editar)" : "")}>
+            <div className="fs-450">
+                <div className="space-between fc-neutral-600 pb-1">
+                    <p>@{username}</p>
+                    <p>{formatTimeAgo(created_datetime)}</p>
+                </div>
+                <p className="content">{content}</p>
+            </div>
+        </Card>
+    );
 };
 
 // TODO: Cards que aceitam title e o type of title, assim como no botão e aceitam children
 // TODO: Title component
 
 export const PostList = () => {
-  const [posts, setPosts] = useState<Post[]>([]);
-  useEffect(() => {
-    getPosts().then((posts) => setPosts(posts));
-  }, []);
+    const [posts, setPosts] = useState<Post[]>([]);
+    const { userName } = useSelector((state) => state.auth);
 
-  return (
-    <>
-      {posts.map((item) => (
-        <Post key={item.id} item={item} />
-      ))}
-    </>
-  );
+    useEffect(() => {
+        getPosts().then((posts) => setPosts(posts));
+    }, []);
+
+    return (
+        <>
+            {posts.map((item) => {
+                const editable =
+                    userName.toUpperCase() ===
+                    item.username.toUpperCase();
+                return (
+                    <Post
+                        key={item.id}
+                        item={item}
+                        editable={editable}
+                    />
+                );
+            })}
+        </>
+    );
 };

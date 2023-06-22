@@ -2,7 +2,7 @@
 
 .input-group input {
   border-radius: 8px;
-  border: 1px solid #777777;
+  border: 1px solid var(--clr-neutral-600);
   margin-top: 0.2rem;
   padding: 0.4rem 0.6rem;
   width: 100%;
@@ -18,7 +18,7 @@
 
 .input-group textarea {
   border-radius: 8px;
-  border: 1px solid #777777;
+  border: 1px solid var(--clr-neutral-600);
   font-size: 16px;
   min-height: 80px;
   outline: none;

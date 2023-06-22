@@ -7,11 +7,10 @@ interface CardProps {
 }
 
 export const Card = ({ children, title }: CardProps) => {
-
-
-
-  return <div className={`${styles.card} ${title? styles["with-title"] : ''}`}>
-    {title && <Heading text={title} accent />}
-    {children}
-    </div>;
+  return (
+    <div className={`${styles.card} ${title ? styles["with-title"] : ""}`}>
+      {title && <Heading text={title} accent />}
+      {children}
+    </div>
+  );
 };
