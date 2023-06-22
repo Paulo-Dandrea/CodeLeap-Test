@@ -1,4 +1,4 @@
-export const createPost = async (postData: any) => {
+export const createPost = async (postData: any) => { // TODO: oropTypes
     try {
         const response = await fetch(
             "https://dev.codeleap.co.uk/careers/",
