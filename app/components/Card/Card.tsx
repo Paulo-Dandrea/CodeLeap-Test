@@ -4,13 +4,16 @@ import styles from "./Card.module.css";
 interface CardProps {
     children: React.ReactNode;
     title?: string;
-    handleDeleteModalOpen?: () => void;
+    modalOpeners?: {
+        handleDeleteModalOpen: () => void;
+        handleEditModalOpen: () => void;
+    };
 }
 
 export const Card = ({
     children,
     title,
-    handleDeleteModalOpen
+    modalOpeners
 }: CardProps) => {
     return (
         <div
@@ -22,7 +25,8 @@ export const Card = ({
                 <Heading
                     text={title}
                     accent
-                    handleDeleteModalOpen={handleDeleteModalOpen}
+                    modalOpeners={modalOpeners}
+                    
                 />
             )}
             {children}

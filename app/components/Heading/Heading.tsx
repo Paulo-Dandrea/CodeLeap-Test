@@ -5,13 +5,16 @@ interface HeadingProps {
     text: string;
     accent?: boolean;
     idToBeEdited?: number | undefined;
-    handleDeleteModalOpen?: () => void;
+    modalOpeners?: {
+        handleDeleteModalOpen: () => void;
+        handleEditModalOpen: () => void;
+    };
 }
 
 export const Heading = ({
     text,
     accent = false,
-    handleDeleteModalOpen
+    modalOpeners,
 }: HeadingProps) => {
     return (
         <div
@@ -21,7 +24,9 @@ export const Heading = ({
         >
             <h1>{text}</h1>
 
-            {handleDeleteModalOpen && <EditButtons handleDeleteModalOpen={handleDeleteModalOpen} />}
+            {modalOpeners && (
+                <EditButtons modalOpeners={modalOpeners} />
+            )}
         </div>
     );
 };

@@ -48,17 +48,15 @@ const Post = ({
         setIsEditModalOpen(false);
     };
 
+    const modalOpeners = {
+        handleDeleteModalOpen: () => handleDeleteModalOpen(),
+        handleEditModalOpen: () => handleEditModalOpen(),
+    };
+
     return (
         <Card
             title={title}
-            handleDeleteModalOpen={
-                editable
-                    ? () => {
-                          handleDeleteModalOpen();
-                      }
-                    : undefined
-            }
-            
+            modalOpeners={editable ? modalOpeners : undefined}
         >
             <div className="fs-450">
                 <div className="space-between fc-neutral-600 pb-1">
