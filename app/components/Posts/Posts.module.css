@@ -1,0 +1,20 @@
+.container {
+  --max-width: 800px;
+  --padding: 1rem;
+
+  width: min(var(--max-width), 100% - var(--padding));
+  margin-inline: auto;
+  background-color: white;
+}
+
+.header {
+  background-color: var(--clr-primary-400);
+  color: white;
+  padding: 20px;
+}
+
+.header h1 {
+  font-size: var(--fs-primary-heading);
+}
+
+/* TODO: Could I Change to SASS? */

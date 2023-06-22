@@ -7,35 +7,8 @@ import { getPosts } from "./api";
 import { Post } from "./types";
 import { PostList } from "./PostList";
 import { createPost } from "./api/getPosts";
-
-const CreatePost = () => {
-  const handleButtonClick = () => {
-    createPost({
-      username: "XXXX",
-      created_datetime: new Date(),
-      title: "XXXX",
-      content: "XXXX",
-    });
-  };
-
-  return (
-    <>
-      <h2>What's on your mind?</h2>
-      <form>
-        <label>
-          Title
-          <input type="text" placeholder="Hello world" />
-        </label>
-
-        <textarea placeholder="Content"></textarea>
-
-        <button type="button" onClick={handleButtonClick}>
-          Create
-        </button>
-      </form>
-    </>
-  );
-};
+import styles from "./Posts.module.css";
+import { CreatePost } from "./CreatePost";
 
 export const Posts = () => {
   // TODO: talvez deixar a lógica de getPosts direto no componente filho
@@ -43,8 +16,6 @@ export const Posts = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const { isLoggedIn, userName } = useSelector((state) => state.auth);
-  
-  
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -57,12 +28,22 @@ export const Posts = () => {
   };
 
   return (
-    <>
-      <h1 className="posts">POSTS from {userName}</h1>
-      <CreatePost />
+    <div className={styles.container}>
+      <div className="flow">
+        <div className={styles.header}>
+          <h1>CodeLeap Network</h1>
+        </div>
 
-       <PostList  />}
+        <div className="flow padding-sides-1">
+          <CreatePost />
+          <PostList />
+        </div>
+      </div>
       <button onClick={handleLogout}>Logout</button>
-    </>
+    </div>
   );
 };
+// TODO:
+/* TODOS:
+[] - make site container have a maximum size clamped
+*/

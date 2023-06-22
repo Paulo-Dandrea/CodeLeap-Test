@@ -85,6 +85,15 @@ svg {
   --clr-primary-400: #7695ec;
   --clr-alert-400: #ff5151;
   --clr-action-400: #47b960;
+
+  --size-400: 1rem;
+  --size-500: 1.3rem; /* 20px */
+  --size-600: 1.375rem; /* 22px */
+  --size-700: 1.5625rem;  /* 25px */
+
+  --fs-primary-heading: var(--size-600);
+
+  --fw-700: 700;
 }
 
 html,
@@ -95,4 +104,19 @@ body {
 button {
   border: none;
   cursor: pointer;
+}
+
+.card {
+  border: 1px solid #999;
+  border-radius: var(--size-400);
+  padding: var(--size-500);
+}
+
+.flow > :where(:not(:last-child)) {
+  margin-bottom: var(--size-700);
+  background-color: palegoldenrod;
+}
+
+.padding-sides-1{
+  padding: 0 var(--size-700);
 }

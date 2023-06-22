@@ -6,7 +6,9 @@ import { Nav } from "./components/Nav";
 import styles from "./styles/layout.module.css";
 import "./styles/globals.css";
 import Link from "next/link";
-import Login from "./components/Login/Login"; // TODO: check the best way to import
+import Login from "./components/Login/Login"; 
+
+// TODO: check the best way to import
 
 export default function RootLayout(props: React.PropsWithChildren) {
   return (
@@ -14,7 +16,7 @@ export default function RootLayout(props: React.PropsWithChildren) {
       <html lang="en">
         <body>
           <section className={styles.container}>
-            <main className={styles.main}>{props.children}</main>
+            <main>{props.children}</main>
           </section>
         </body>
       </html>

@@ -1,22 +1,25 @@
+/* TODO:  */
+
 .container {
   background-color: var(--clr-neutral-400);
-  display: grid;
-  grid-template-areas:
+  /* display: grid;
+  align-items: center; */
+  min-height: 100vh;
+  /* grid-template-areas:
     'nav'
     'header'
     'main'
     'footer';
-  grid-template-rows: auto auto 1fr 36px;
-  align-items: center;
-  min-height: 100vh;
+  grid-template-rows: auto auto 1fr 36px; */
 }
 
 
-.logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
+/* width: 800px
+height: 1080px
+left: 560px */
+
+/* 
 .header {
   grid-area: header;
 }
@@ -76,4 +79,4 @@
   100% {
     transform: translateY(0px);
   }
-}
+} */
