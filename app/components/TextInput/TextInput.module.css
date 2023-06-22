@@ -12,7 +12,7 @@
   outline: none;
 }
 
-.input-group  input::placeholder {
+.input-group input::placeholder {
   font-size: var(--size-300);
 }
 
@@ -28,6 +28,6 @@
   width: 100%;
 }
 
-.input-group  textarea::placeholder {
+.input-group textarea::placeholder {
   font-size: var(--size-300);
 }

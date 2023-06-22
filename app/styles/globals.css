@@ -99,7 +99,7 @@ svg {
 
 html,
 body {
-  font-family: roboto;
+  font-family: var(--roboto);
 }
 
 button {
@@ -111,6 +111,11 @@ button {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
 }
 
 .margin-left-auto {

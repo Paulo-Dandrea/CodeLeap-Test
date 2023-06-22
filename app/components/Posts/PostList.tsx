@@ -5,6 +5,22 @@ import styles from "./PostList.module.css";
 import { Card } from "../Card/Card";
 import { Heading } from "../Heading/Heading";
 
+const formatTimeAgo = (dateString) => {
+  const date = new Date(dateString);
+  const now = new Date();
+  const minutesAgo = Math.floor((now - date) / 60000); // Calculate the difference in minutes
+
+  if (minutesAgo < 1) {
+    return 'just now';
+  } else if (minutesAgo === 1) {
+    return '1 minute ago';
+  } else {
+    return `${minutesAgo} minutes ago`;
+  }
+};
+
+
+
 interface PostProps {
   item: Post;
 }
@@ -13,16 +29,19 @@ const Post = ({
   item: { username, created_datetime, title, content },
 }: PostProps) => {
   return (
-    <Card>
-      <div className={styles.card}>
-        <Heading text={title} accent={true}  />
+    <Card title={title}>
+      {/* <div className={styles.card}> */}
+      {/* <Heading text={title} accent={true} /> */}
+      <div>
         <div className="space-between">
           <p>@{username}</p>
           {/* Transform in minutes ago */}
-          <p>{created_datetime}</p>
-          <p className="content">{content}</p>
+          <p>{formatTimeAgo(created_datetime)}</p>
         </div>
+        <p className="content">{content}</p>
       </div>
+
+      {/* </div> */}
     </Card>
   );
 };
