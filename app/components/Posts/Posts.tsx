@@ -30,6 +30,7 @@ export const Posts = () => {
 
   return (
     <div className={styles.container}>
+      <button onClick={handleLogout}>Logout</button>
       <div className="flow">
         <div className={styles.header}>
           <Heading text="CodeLeap Network" />
@@ -40,7 +41,6 @@ export const Posts = () => {
           <PostList />
         {/* </div> */}
       </div>
-      <button onClick={handleLogout}>Logout</button>
     </div>
   );
 };

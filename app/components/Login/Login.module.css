@@ -31,30 +31,8 @@
   gap: .9rem;
 }
 
-/* these styles should be global */
-
-.modal-content input {
-  border-radius: 8px;
-  border: 1px solid #777777 ;
-  font-size: 1rem;
-  margin-top: 0.2rem;
-  padding: .4rem .6rem;
-  width: 100%;
-}
-
-.modal-content input:focus {
-  outline: none;
-}
-
-
 .button-container {
   margin-left: auto;
 }
 
  
-/* variables */
-/* 
-
-8px radius
-
-*/
