@@ -109,6 +109,7 @@ body {
 button {
     border: none;
     cursor: pointer;
+    background-color: transparent;
 }
 
 .flex-column-1 {
