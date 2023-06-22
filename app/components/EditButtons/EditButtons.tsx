@@ -4,32 +4,16 @@ import { DeleteModal, Modal } from "../Modal/Modal";
 import { Heading } from "../Heading/Heading";
 import { Button } from "../Button/Button";
 
-export const EditButtons = () => {
-    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+interface EditButtonsProps {
+    handleDeleteModalOpen?: () => void;
+}
 
-    const handleEditClick = () => {
-        setIsEditModalOpen(true);
-    };
-
-    const handleDeleteClick = () => {
-        setIsDeleteModalOpen(true);
-    };
-
-    const handleModalAction = () => {
-        // Perform action related to the modal
-        setIsEditModalOpen(false);
-        setIsDeleteModalOpen(false);
-    };
-
-    const handleModalCancel = () => {
-        setIsEditModalOpen(false);
-        setIsDeleteModalOpen(false);
-    };
-
+export const EditButtons = ({
+    handleDeleteModalOpen,
+}: EditButtonsProps) => {
     return (
         <div className="space-between gap-1">
-            <button onClick={handleDeleteClick}>
+            <button onClick={handleDeleteModalOpen}>
                 <Image
                     src="ic_baseline-delete-forever.svg"
                     alt="edit"
@@ -45,14 +29,6 @@ export const EditButtons = () => {
                     height={30}
                 />
             </button> */}
-
-            {isDeleteModalOpen && (
-                <DeleteModal
-                    handleModalAction={handleModalAction}
-                    handleModalCancel={handleModalCancel}
-                />
-            )}
         </div>
     );
 };
-

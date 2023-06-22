@@ -4,13 +4,13 @@ import styles from "./Card.module.css";
 interface CardProps {
     children: React.ReactNode;
     title?: string;
-    idToBeEdited?: number | undefined;
+    handleDeleteModalOpen?: () => void;
 }
 
 export const Card = ({
     children,
     title,
-    idToBeEdited = undefined,
+    handleDeleteModalOpen
 }: CardProps) => {
     return (
         <div
@@ -22,7 +22,7 @@ export const Card = ({
                 <Heading
                     text={title}
                     accent
-                    idToBeEdited={idToBeEdited}
+                    handleDeleteModalOpen={handleDeleteModalOpen}
                 />
             )}
             {children}

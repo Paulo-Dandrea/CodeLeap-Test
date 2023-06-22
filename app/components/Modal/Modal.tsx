@@ -8,29 +8,32 @@ interface ModalProps {
 
 export const Modal = ({ children }: ModalProps) => (
     <div className={styles.modal}>
-        <div className={`flex flex-column gap-1 ${styles["modal-content"]}`}>
+        <div
+            className={`flex flex-column gap-1 ${styles["modal-content"]}`}
+        >
             {children}
         </div>
     </div>
 );
 
-
 export const DeleteModal = ({
-    handleModalAction,
-    handleModalCancel,
+    handleCancelClick,
+    handleDeleteClick,
 }) => {
     return (
         <Modal>
-            <h1>
-                Are you sure you want to delete this item? This action
-            </h1>
-            <Heading text="Are you sure you want to delete this item?" accent={false} />
+            <div className="pb-1">
+                <Heading
+                    text="Are you sure you want to delete this item?"
+                    accent={false}
+                />
+            </div>
             <div className="margin-left-auto">
                 <div className="flex gap-1">
-                    <Button onClick={handleModalCancel} color="white">
+                    <Button onClick={handleCancelClick} color="white">
                         Cancel
                     </Button>
-                    <Button onClick={handleModalAction} color="alert">
+                    <Button onClick={handleDeleteClick} color="alert">
                         Delete
                     </Button>
                 </div>

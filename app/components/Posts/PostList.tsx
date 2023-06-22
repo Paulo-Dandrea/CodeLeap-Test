@@ -4,6 +4,7 @@ import { Post } from "./types";
 import { Card } from "../Card/Card";
 import { formatTimeAgo } from "@/lib/helpers";
 import { useSelector } from "@/lib/redux";
+import { DeleteModal } from "../Modal/Modal";
 
 interface PostProps {
     item: Post;
@@ -16,14 +17,30 @@ const Post = ({
 }: PostProps) => {
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
-    const handleDeleteClick = () => {
+    const handleCancelClick = () => {
+        setIsDeleteModalOpen(false);
+        // setIsEditModalOpen(false);
+    };
+
+    const handleDeleteModalOpen = () => {
         setIsDeleteModalOpen(true);
+    };
+
+    const handleDeleteClick = () => {
+      console.log('id', id);
     };
 
     return (
         <Card
             title={title + (editable ? " (Editar)" : "")}
-            idToBeEdited={editable ? id : undefined}
+            // idToBeEdited={editable ? id : undefined}
+            handleDeleteModalOpen={
+                editable
+                    ? () => {
+                          handleDeleteModalOpen();
+                      }
+                    : undefined
+            }
         >
             <div className="fs-450">
                 <div className="space-between fc-neutral-600 pb-1">
@@ -31,6 +48,13 @@ const Post = ({
                     <p>{formatTimeAgo(created_datetime)}</p>
                 </div>
                 <p className="content">{content}</p>
+
+                {isDeleteModalOpen && (
+                    <DeleteModal
+                    handleCancelClick={handleCancelClick}
+                    handleDeleteClick={handleDeleteClick}
+                    />
+                )}
             </div>
         </Card>
     );
