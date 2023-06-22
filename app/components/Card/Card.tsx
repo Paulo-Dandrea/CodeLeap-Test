@@ -1,3 +1,7 @@
-export const Card = ({ children }: { children: React.ReactNode }) => {
+interface CardProps {
+  children: React.ReactNode;
+}
+
+export const Card = ({ children }: CardProps) => {
   return <div className="card">{children}</div>;
 };

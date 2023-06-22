@@ -4,13 +4,13 @@ import { getPosts } from "./api";
 import styles from "./PostList.module.css";
 import { Card } from "../Card/Card";
 
-
+interface PostProps {
+  item: Post;
+}
 
 const Post = ({
   item: { username, created_datetime, title, content },
-}: {
-  item: Post;
-}) => {
+}: PostProps) => {
   return (
     <Card>
       <div className={styles.card}>

@@ -15,7 +15,7 @@ import {
   authSlice
 } from "@/lib/redux";
 import styles from "./counter.module.css";
-import { fetchPosts } from "@/lib/redux/slices/counterSlice/fetchIdentityCount";
+// import { fetchPosts } from "@/lib/redux/slices/counterSlice/fetchIdentityCount";
 
 export const Counter = () => {
   const dispatch = useDispatch();
@@ -72,12 +72,12 @@ export const Counter = () => {
         >
           Add If Odd
         </button>
-        <button
+        {/* <button
           className={styles.button}
           onClick={() => dispatch(getPosts(incrementAmount))}
         >
           Call API
-        </button>
+        </button> */}
         <button
           className={styles.button}
           onClick={() => dispatch(authSlice.actions.login)}

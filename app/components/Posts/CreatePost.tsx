@@ -21,6 +21,7 @@ export const CreatePost = () => {
       <div className={styles.card}>
         <Heading text="What's on your mind?" />
         <form>
+        {/* <TextArea value="Title" /> */}
           <label>
             Title
             <input type="text" placeholder="Hello world" />

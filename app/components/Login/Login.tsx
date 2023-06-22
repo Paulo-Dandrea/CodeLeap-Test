@@ -4,11 +4,11 @@ import { useDispatch, authSlice } from "@/lib/redux";
 import { Button } from "../Button/Button";
 import styles from "./Login.module.css";
 import { Heading } from "../Heading/Heading";
-import { TextArea } from "../TextArea/TextArea";
+import {  TextInput } from "../TextInput/TextInput";
 
 // TODO: Change indentiation to 4
 // TODO: Max lines - 100 or 80
-
+// TODO: Adjust order of imports
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -38,8 +38,14 @@ const Login = () => {
               onChange={handleUsernameChange}
             />
           </div> */}
-          <TextArea value={username} onChange={handleUsernameChange} />
-          
+          <TextInput
+            value={username}
+            onChange={handleUsernameChange}
+            placeholder="John doe"
+            id="username"
+            label="Please enter your username"
+          />
+
           <div className={styles["button-container"]}>
             <Button color="primary" onClick={handleLogin} disabled={!username}>
               ENTER
