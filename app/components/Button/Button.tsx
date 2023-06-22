@@ -18,12 +18,7 @@ export const Button = ({ color, onClick, disabled, children }: ButtonProps) => {
     const classes = [styles.btn, colors[color]].join(" ");
 
     return (
-        <button
-            type="button"
-            onClick={onClick}
-            disabled={disabled}
-            className={classes}
-        >
+        <button type="button" onClick={onClick} disabled={disabled} className={classes}>
             {children}
         </button>
     );

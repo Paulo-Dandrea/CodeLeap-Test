@@ -11,22 +11,16 @@ interface HeadingProps {
     };
 }
 
-export const Heading = ({
-    text,
-    accent = false,
-    modalOpeners,
-}: HeadingProps) => {
+export const Heading = ({ text, accent = false, modalOpeners }: HeadingProps) => {
     return (
         <div
-            className={`space-between align-items-center ${
-                style.heading
-            } ${accent ? style.accent : ""} `}
+            className={`space-between align-items-center ${style.heading} ${
+                accent ? style.accent : ""
+            } `}
         >
             <h1>{text}</h1>
 
-            {modalOpeners && (
-                <EditButtons modalOpeners={modalOpeners} />
-            )}
+            {modalOpeners && <EditButtons modalOpeners={modalOpeners} />}
         </div>
     );
 };

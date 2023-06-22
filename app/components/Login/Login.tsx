@@ -6,17 +6,11 @@ import { Heading } from "../Heading/Heading";
 import { TextInput } from "../TextInput/TextInput";
 import { Modal } from "../Modal/Modal";
 
-// TODO: Change indentiation to 4
-// TODO: Max lines - 100 or 80
-// TODO: Adjust order of imports
-
 const Login = () => {
     const dispatch = useDispatch();
     const [username, setUsername] = useState("");
 
-    const handleUsernameChange = (
-        e: ChangeEvent<HTMLInputElement>
-    ) => {
+    const handleUsernameChange = (e: ChangeEvent<HTMLInputElement>) => {
         setUsername(e.target.value);
     };
 
@@ -37,11 +31,7 @@ const Login = () => {
                 />
 
                 <div className="margin-left-auto">
-                    <Button
-                        color="primary"
-                        onClick={handleLogin}
-                        disabled={!username}
-                    >
+                    <Button color="primary" onClick={handleLogin} disabled={!username}>
                         ENTER
                     </Button>
                 </div>

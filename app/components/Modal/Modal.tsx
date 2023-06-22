@@ -9,10 +9,7 @@ interface ModalProps {
     alternative?: boolean;
 }
 
-export const Modal = ({
-    children,
-    alternative = false,
-}: ModalProps) => (
+export const Modal = ({ children, alternative = false }: ModalProps) => (
     <div
         className={`
       ${styles.modal}
@@ -31,4 +28,3 @@ export const Modal = ({
         </div>
     </div>
 );
-

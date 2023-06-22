@@ -8,9 +8,7 @@ interface EditModalProps {
     handleCancelClick: () => void;
     handleSaveClick: () => void;
     handleTitleChange: (e: ChangeEvent<HTMLInputElement>) => void;
-    handleContentChange: (
-        e: ChangeEvent<HTMLTextAreaElement>
-    ) => void;
+    handleContentChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
     title: string;
     content: string;
 }

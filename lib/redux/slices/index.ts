@@ -1,3 +1,2 @@
-export * from './counterSlice'
-export * from './authSlice'
-export * from './shouldGetPostsSlice'
+export * from "./authSlice";
+export * from "./shouldGetPostsSlice";

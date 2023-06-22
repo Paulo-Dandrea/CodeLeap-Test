@@ -10,25 +10,10 @@ interface CardProps {
     };
 }
 
-export const Card = ({
-    children,
-    title,
-    modalOpeners
-}: CardProps) => {
+export const Card = ({ children, title, modalOpeners }: CardProps) => {
     return (
-        <div
-            className={`${styles.card} ${
-                title ? styles["with-title"] : ""
-            }`}
-        >
-            {title && (
-                <Heading
-                    text={title}
-                    accent
-                    modalOpeners={modalOpeners}
-                    
-                />
-            )}
+        <div className={`${styles.card} ${title ? styles["with-title"] : ""}`}>
+            {title && <Heading text={title} accent modalOpeners={modalOpeners} />}
             {children}
         </div>
     );

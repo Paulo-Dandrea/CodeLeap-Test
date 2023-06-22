@@ -7,17 +7,11 @@ interface DeleteModalProps {
     handleDeleteClick: () => void;
 }
 
-export const DeleteModal = ({
-    handleCancelClick,
-    handleDeleteClick,
-}: DeleteModalProps) => {
+export const DeleteModal = ({ handleCancelClick, handleDeleteClick }: DeleteModalProps) => {
     return (
         <Modal alternative>
             <div className="pb-1">
-                <Heading
-                    text="Are you sure you want to delete this item?"
-                    accent={false}
-                />
+                <Heading text="Are you sure you want to delete this item?" accent={false} />
             </div>
             <div className="margin-left-auto">
                 <div className="flex gap-1">

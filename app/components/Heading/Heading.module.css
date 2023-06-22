@@ -1,11 +1,11 @@
 .heading {
-  font-size: var(--fs-primary-heading);
-  line-height: var(--size-700);
-  font-weight: var(--fw-700);
+    font-size: var(--fs-primary-heading);
+    line-height: var(--size-700);
+    font-weight: var(--fw-700);
 }
 
 .accent {
-  background-color: var(--clr-primary-400);
-  color: white;
-  padding: 20px;
+    background-color: var(--clr-primary-400);
+    color: white;
+    padding: 20px;
 }

@@ -1,6 +1,4 @@
-/* Core */
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-
 
 const authState = {
     isLoggedIn: false,

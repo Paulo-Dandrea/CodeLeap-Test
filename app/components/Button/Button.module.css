@@ -10,8 +10,7 @@
 .btn:focus,
 .btn:hover {
     outline: none;
-    transform: scale(1.03)
-
+    transform: scale(1.03);
 }
 
 .blue {

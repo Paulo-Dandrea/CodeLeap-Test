@@ -38,4 +38,4 @@ export const Posts = () => {
     );
 };
 
-// TODO: Need a breath on the footer
+

@@ -4,7 +4,7 @@ import { Card } from "../Card/Card";
 import { Heading } from "../Heading/Heading";
 import { TextArea, TextInput } from "../TextInput/TextInput";
 
-import styles from "./CreatePost.module.css";
+// import styles from "./CreatePost.module.css";
 import { createPost } from "./api";
 import { useDispatch } from "react-redux";
 import { shouldGetPostsSlice, useSelector } from "@/lib/redux";
@@ -33,15 +33,13 @@ export const CreatePost = () => {
         setTitle(e.target.value);
     };
 
-    const handleContentChange = (
-        e: ChangeEvent<HTMLTextAreaElement>
-    ) => {
+    const handleContentChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
         setContent(e.target.value);
     };
 
     return (
         <Card>
-            <div className={`flex flex-column gap-1 ${styles.card}`}>
+            <div className={`flex flex-column gap-1 `}>
                 <Heading text="What's on your mind?" />
                 <form className="flex flex-column gap-1">
                     <TextInput
@@ -60,10 +58,7 @@ export const CreatePost = () => {
                         onChange={handleContentChange}
                     />
                     <div className="margin-left-auto">
-                        <Button
-                            color="primary"
-                            onClick={handleButtonClick}
-                        >
+                        <Button color="primary" onClick={handleButtonClick}>
                             Create
                         </Button>
                     </div>

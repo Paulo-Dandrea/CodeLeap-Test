@@ -1,18 +1,18 @@
 .card {
-  border: 2px solid var(--clr-neutral-500);
-  border-radius: var(--size-400);
-  margin: var(--size-700);
-  overflow-y: auto;
+    border: 2px solid var(--clr-neutral-500);
+    border-radius: var(--size-400);
+    margin: var(--size-700);
+    overflow-y: auto;
 }
 
 .card > * {
-  padding: var(--size-500);
+    padding: var(--size-500);
 }
 
 .with-title > * {
-  padding: initial;
+    padding: initial;
 }
 
 .with-title > *:where(:not(:first-child)) {
-  padding: var(--size-500);
+    padding: var(--size-500);
 }
