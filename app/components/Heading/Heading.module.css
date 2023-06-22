@@ -3,3 +3,8 @@
   line-height: var(--size-700);
   font-weight: var(--fw-700);
 }
+
+.accent {
+  background-color: var(--clr-primary-400);
+  
+}

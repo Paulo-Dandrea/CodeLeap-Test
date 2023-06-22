@@ -30,9 +30,9 @@ export const CreatePost = () => {
 
   return (
     <Card>
-      <div className={styles.card}>
+      <div className={`flex-column-1 ${styles.card}`}>
         <Heading text="What's on your mind?" />
-        <form>
+        <form className="flex-column-1">
           <TextInput
             value={title}
             label="Title"
@@ -48,12 +48,13 @@ export const CreatePost = () => {
             placeholder="Content here"
             onChange={handleContentChange}
           />
-
-          <Button color="primary" onClick={handleButtonClick}>
-            Create
-          </Button>
+          <div className="margin-left-auto">
+            <Button color="primary" onClick={handleButtonClick}>
+              Create
+            </Button>
+          </div>
         </form>
       </div>
     </Card>
   );
-}; 
+};

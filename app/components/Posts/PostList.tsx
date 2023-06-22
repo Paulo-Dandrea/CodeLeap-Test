@@ -3,6 +3,7 @@ import { Post } from "./types";
 import { getPosts } from "./api";
 import styles from "./PostList.module.css";
 import { Card } from "../Card/Card";
+import { Heading } from "../Heading/Heading";
 
 interface PostProps {
   item: Post;
@@ -14,7 +15,7 @@ const Post = ({
   return (
     <Card>
       <div className={styles.card}>
-        <h2>{title}</h2>
+        <Heading text={title} accent={true}  />
         <div className="space-between">
           <p>@{username}</p>
           {/* Transform in minutes ago */}
