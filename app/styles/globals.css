@@ -112,10 +112,12 @@ button {
     background-color: transparent;
 }
 
-.flex-column-1 {
+.flex {
     display: flex;
+}
+
+.flex-column {
     flex-direction: column;
-    gap: 1rem;
 }
 
 .gap-1 {

@@ -4,13 +4,13 @@ import style from "./Heading.module.css";
 interface HeadingProps {
     text: string;
     accent?: boolean;
-    editable?: boolean;
+    idToBeEdited?: number | undefined;
 }
 
 export const Heading = ({
     text,
     accent = false,
-    editable = true,
+    idToBeEdited = undefined,
 }: HeadingProps) => {
     return (
         <div
@@ -20,7 +20,7 @@ export const Heading = ({
         >
             <h1>{text}</h1>
 
-            {editable && <EditButtons />}
+            {idToBeEdited && <EditButtons />}
         </div>
     );
 };

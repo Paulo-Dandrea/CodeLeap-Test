@@ -11,11 +11,20 @@ interface PostProps {
 }
 
 const Post = ({
-    item: { username, created_datetime, title, content },
+    item: { username, created_datetime, title, content, id },
     editable = false,
 }: PostProps) => {
+    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+
+    const handleDeleteClick = () => {
+        setIsDeleteModalOpen(true);
+    };
+
     return (
-        <Card title={title + (editable ? " (Editar)" : "")}>
+        <Card
+            title={title + (editable ? " (Editar)" : "")}
+            idToBeEdited={editable ? id : undefined}
+        >
             <div className="fs-450">
                 <div className="space-between fc-neutral-600 pb-1">
                     <p>@{username}</p>

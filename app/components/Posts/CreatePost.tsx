@@ -30,9 +30,9 @@ export const CreatePost = () => {
 
   return (
     <Card>
-      <div className={`flex-column-1 ${styles.card}`}>
+      <div className={`flex flex-column gap-1 ${styles.card}`}>
         <Heading text="What's on your mind?" />
-        <form className="flex-column-1">
+        <form className="flex flex-column gap-1">
           <TextInput
             value={title}
             label="Title"

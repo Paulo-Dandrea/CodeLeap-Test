@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { useState } from "react";
-import { Modal } from "../Modal/Modal";
-
+import { DeleteModal, Modal } from "../Modal/Modal";
+import { Heading } from "../Heading/Heading";
+import { Button } from "../Button/Button";
 
 export const EditButtons = () => {
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -36,14 +37,14 @@ export const EditButtons = () => {
                     height={30}
                 />
             </button>
-            <button onClick={handleEditClick}>
+            {/* <button onClick={handleEditClick}>
                 <Image
                     src="bx_bx-edit.svg"
                     alt="edit"
                     width={30}
                     height={30}
                 />
-            </button>
+            </button> */}
 
             {isDeleteModalOpen && (
                 <DeleteModal
@@ -55,15 +56,3 @@ export const EditButtons = () => {
     );
 };
 
-export const DeleteModal = ({
-    handleModalAction,
-    handleModalCancel,
-}) => {
-    return (
-        <Modal>
-            <p>Modal content goes here</p>
-            <button onClick={handleModalAction}>Take Action</button>
-            <button onClick={handleModalCancel}>Cancel</button>
-        </Modal>
-    );
-};

@@ -28,7 +28,7 @@ const Login = () => {
     return (
         <Modal>
             <Heading text="Welcome to CodeLeap network!" />
-            <form className="flex-column-1">
+            <form className="flex flex-column gap-1">
                 <TextInput
                     value={username}
                     onChange={handleUsernameChange}
