@@ -3,41 +3,54 @@ import { deletePost, getPosts } from "./api";
 import { Post } from "./types";
 import { Card } from "../Card/Card";
 import { formatTimeAgo } from "@/lib/helpers";
-import { useSelector } from "@/lib/redux";
-import { DeleteModal } from "../Modal/Modal";
+import {
+    shouldGetPostsSlice,
+    useDispatch,
+    useSelector,
+} from "@/lib/redux";
+import { DeleteModal, EditModal } from "../Modal/Modal";
 
 interface PostProps {
     item: Post;
     editable?: boolean;
-    shouldGetPostsHandler: () => void;
 }
 
 const Post = ({
     item: { username, created_datetime, title, content, id },
     editable = false,
-    shouldGetPostsHandler,
 }: PostProps) => {
-    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+    const dispatch = useDispatch();
 
-    const handleCancelClick = () => {
-        setIsDeleteModalOpen(false);
-        // setIsEditModalOpen(false);
-    };
+    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
     const handleDeleteModalOpen = () => {
         setIsDeleteModalOpen(true);
     };
 
+    const handleEditModalOpen = () => {
+        setIsEditModalOpen(true);
+    };
+
+    const handleCancelClick = () => {
+        setIsDeleteModalOpen(false);
+        setIsEditModalOpen(false);
+    };
+
     const handleDeleteClick = () => {
         deletePost(id);
-        shouldGetPostsHandler();
+        dispatch(shouldGetPostsSlice.actions.update());
         setIsDeleteModalOpen(false);
+    };
+
+    const handleSaveClick = () => {
+        dispatch(shouldGetPostsSlice.actions.update());
+        setIsEditModalOpen(false);
     };
 
     return (
         <Card
             title={title}
-            // idToBeEdited={editable ? id : undefined}
             handleDeleteModalOpen={
                 editable
                     ? () => {
@@ -45,6 +58,7 @@ const Post = ({
                       }
                     : undefined
             }
+            
         >
             <div className="fs-450">
                 <div className="space-between fc-neutral-600 pb-1">
@@ -59,6 +73,13 @@ const Post = ({
                         handleDeleteClick={handleDeleteClick}
                     />
                 )}
+
+                {isEditModalOpen && (
+                    <EditModal
+                        handleCancelClick={handleCancelClick}
+                        handleSaveClick={handleSaveClick}
+                    />
+                )}
             </div>
         </Card>
     );
@@ -68,18 +89,19 @@ const Post = ({
 // TODO: Title component
 
 export const PostList = () => {
-    const [posts, setPosts] = useState<Post[]>([]);
-    const [shouldgetPosts, setShouldGetPosts] = useState(false);
+    const dispatch = useDispatch();
+
     const { userName } = useSelector((state) => state.auth);
+    const { shouldGetPosts } = useSelector(
+        (state) => state.shouldGetPosts
+    );
+
+    const [posts, setPosts] = useState<Post[]>([]);
 
     useEffect(() => {
         getPosts().then((posts) => setPosts(posts));
-        setShouldGetPosts(false);
-    }, [shouldgetPosts]);
-
-    const shouldGetPostsHandler = () => {
-        setShouldGetPosts(true);
-    };
+        dispatch(shouldGetPostsSlice.actions.doNotUpdate());
+    }, [shouldGetPosts]);
 
     return (
         <>
@@ -96,9 +118,6 @@ export const PostList = () => {
                             key={item.id}
                             item={item}
                             editable={editable}
-                            shouldGetPostsHandler={
-                                shouldGetPostsHandler
-                            }
                         />
                     );
                 })

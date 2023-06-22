@@ -4,26 +4,6 @@ import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 /* Instruments */
 import { incrementAsync } from "./thunks";
 
-// TODO: add type
-const authState = {
-  isLoggedIn: false,
-  userName: "",
-};
-
-export const authSlice = createSlice({
-  name: "auth",
-  initialState: authState,
-  reducers: {
-    login: (state, action: PayloadAction<string>) => {
-      state.isLoggedIn = true;
-      state.userName = action.payload;
-    },
-    logout: (state) => {
-      state.isLoggedIn = false;
-      state.userName = ""; 
-    },
-  },
-});
 
 export interface CounterSliceState {
   value: number;

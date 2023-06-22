@@ -1,7 +1,12 @@
 /* Instruments */
-import { authSlice, counterSlice } from "./slices";
+import {
+    authSlice,
+    counterSlice,
+    shouldGetPostsSlice,
+} from "./slices";
 
 export const reducer = {
-  counter: counterSlice.reducer,
-  auth: authSlice.reducer,
+    counter: counterSlice.reducer,
+    auth: authSlice.reducer,
+    shouldGetPosts: shouldGetPostsSlice.reducer,
 };

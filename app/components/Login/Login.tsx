@@ -4,7 +4,6 @@ import { useDispatch, authSlice } from "@/lib/redux";
 import { Button } from "../Button/Button";
 import { Heading } from "../Heading/Heading";
 import { TextInput } from "../TextInput/TextInput";
-import styles from "./Login.module.css";
 import { Modal } from "../Modal/Modal";
 
 // TODO: Change indentiation to 4

@@ -46,3 +46,36 @@ export const DeleteModal = ({
         </Modal>
     );
 };
+
+interface EditModalProps {
+    handleCancelClick: () => void;
+    handleSaveClick: () => void;
+}
+
+export const EditModal = ({
+    handleCancelClick,
+    handleSaveClick,
+}: EditModalProps) => {
+    return (
+        <Modal>
+            
+
+            <div className="pb-1">
+                <Heading
+                    text="Are you sure you want to delete this item?"
+                    accent={false}
+                />
+            </div>
+            <div className="margin-left-auto">
+                <div className="flex gap-1">
+                    <Button onClick={handleCancelClick} color="white">
+                        Cancel
+                    </Button>
+                    <Button onClick={handleSaveClick} color="action">
+                        Save
+                    </Button>
+                </div>
+            </div>
+        </Modal>
+    );
+};
