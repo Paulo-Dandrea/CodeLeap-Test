@@ -5,6 +5,7 @@ import { Post } from "./types";
 import { Card } from "../Card/Card";
 import { DeleteModal, EditModal } from "../Modal";
 import { formatTimeAgo } from "@/lib/helpers";
+import { updatePost } from "./api/updatePost";
 
 interface PostProps {
     item: Post;
@@ -48,8 +49,11 @@ export const PostItem = ({
             console.log("editedTitle: ", editedTitle);
             console.log("editedContent: ", editedContent);
             console.log("id: ", id);
-            
-            
+            updatePost(id, {
+                title: editedTitle,
+                content: editedContent,
+            });
+
             dispatch(shouldGetPostsSlice.actions.update());
             setIsEditModalOpen(false);
         },
@@ -107,8 +111,12 @@ export const PostItem = ({
                     <EditModal
                         title={editedTitle}
                         content={editedContent}
-                        handleTitleChange={editMethods.handleTitleChange}
-                        handleContentChange={editMethods.handleContentChange}
+                        handleTitleChange={
+                            editMethods.handleTitleChange
+                        }
+                        handleContentChange={
+                            editMethods.handleContentChange
+                        }
                         handleSaveClick={editMethods.handleSaveClick}
                         handleCancelClick={handleCancelClick}
                     />

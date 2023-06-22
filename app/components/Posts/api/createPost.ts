@@ -1,4 +1,11 @@
-export const createPost = async (postData: any) => { // TODO: oropTypes
+interface CreatePostBody {
+    username: string;
+    created_datetime: Date;
+    title: string;
+    content: string;
+}
+
+export const createPost = async (body: CreatePostBody) => {
     try {
         const response = await fetch(
             "https://dev.codeleap.co.uk/careers/",
@@ -7,7 +14,7 @@ export const createPost = async (postData: any) => { // TODO: oropTypes
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(postData),
+                body: JSON.stringify(body),
             }
         );
 
