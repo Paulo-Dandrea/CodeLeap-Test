@@ -2,10 +2,9 @@ import { useEffect, useState } from "react";
 import { Post } from "./types";
 import { getPosts } from "./api";
 import styles from "./PostList.module.css";
+import { Card } from "../Card/Card";
 
-export const Card = ({ children }: { children: React.ReactNode }) => {
-  return <div className="card">{children}</div>;
-};
+
 
 const Post = ({
   item: { username, created_datetime, title, content },

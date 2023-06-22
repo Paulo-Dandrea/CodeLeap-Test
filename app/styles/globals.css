@@ -110,13 +110,7 @@ button {
   border: 1px solid #999;
   border-radius: var(--size-400);
   padding: var(--size-500);
+  margin: var(--size-700);
 }
 
-.flow > :where(:not(:last-child)) {
-  margin-bottom: var(--size-700);
-  background-color: palegoldenrod;
-}
 
-.padding-sides-1{
-  padding: 0 var(--size-700);
-}

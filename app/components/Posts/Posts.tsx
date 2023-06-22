@@ -9,6 +9,7 @@ import { PostList } from "./PostList";
 import { createPost } from "./api/getPosts";
 import styles from "./Posts.module.css";
 import { CreatePost } from "./CreatePost";
+import { Heading } from "../Heading/Heading";
 
 export const Posts = () => {
   // TODO: talvez deixar a lógica de getPosts direto no componente filho
@@ -31,13 +32,13 @@ export const Posts = () => {
     <div className={styles.container}>
       <div className="flow">
         <div className={styles.header}>
-          <h1>CodeLeap Network</h1>
+          <Heading text="CodeLeap Network" />
         </div>
 
-        <div className="flow padding-sides-1">
+        {/* <div> */}
           <CreatePost />
           <PostList />
-        </div>
+        {/* </div> */}
       </div>
       <button onClick={handleLogout}>Logout</button>
     </div>

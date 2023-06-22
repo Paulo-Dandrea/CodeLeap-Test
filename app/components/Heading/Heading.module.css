@@ -1,0 +1,5 @@
+.heading {
+  font-size: var(--fs-primary-heading);
+  line-height: var(--size-700);
+  font-weight: var(--fw-700);
+}
