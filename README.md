@@ -8,7 +8,7 @@ To run it locally, you can clone the repository and execute:
 yarn dev
 ```
 
-There are, still, some bonus points, bugs and refactors to do. But feel free to consider as an MVP.
+There are, still, some bonus points, bugs and refactors to do. But feel free to consider as a MVP.
 
 ### Built with: 
 - Next
