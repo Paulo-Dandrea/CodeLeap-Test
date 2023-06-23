@@ -8,13 +8,10 @@ To run it locally, you can clone the repository and execute:
 yarn dev
 ```
 
-There are, still, some bonus points and refactors to do.
+There are, still, some bonus points, bugs and refactors to do. But feel free to consider as an MVP.
 
 ### Built with: 
 - Next
 - Typescript
 - CSS Modules
 - Redux
-
-### Bugs to fix:
-- [] Users enter directly on the home page.
