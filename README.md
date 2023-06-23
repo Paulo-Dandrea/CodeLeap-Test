@@ -2,11 +2,19 @@
 
 You can view the application [here](https://code-leap-test-one.vercel.app/).
 
-Or you can clone and run:
+To run it locally, you can clone the repository and execute:
 
 ```bash
 yarn dev
 ```
 
-There are still a lot of things to do, but it is an okay MVP.
+There are, still, some bonus points and refactors to do.
 
+### Built with: 
+- Next
+- Typescript
+- CSS Modules
+- Redux
+
+### Bugs to fix:
+- [] Users enter directly on the home page.
