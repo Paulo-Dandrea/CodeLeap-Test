@@ -3,8 +3,6 @@ import { Button } from "../Button/Button";
 import { Card } from "../Card/Card";
 import { Heading } from "../Heading/Heading";
 import { TextArea, TextInput } from "../TextInput/TextInput";
-
-// import styles from "./CreatePost.module.css";
 import { createPost } from "./api";
 import { useDispatch } from "react-redux";
 import { shouldGetPostsSlice, useSelector } from "@/lib/redux";

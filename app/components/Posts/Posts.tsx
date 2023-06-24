@@ -1,7 +1,5 @@
 "use client";
-import { authSlice, useSelector } from "@/lib/redux";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { authSlice } from "@/lib/redux";
 import { useDispatch } from "react-redux";
 import { PostList } from "./PostList";
 import { CreatePost } from "./CreatePost";

@@ -21,6 +21,7 @@ export const TextInput = ({
             <label htmlFor={id}>{label}</label>
             <br />
             <input
+                className="border-radius-1"
                 type="text"
                 id={id}
                 value={value}
@@ -44,7 +45,13 @@ export const TextArea = ({
         <div className={styles["input-group"]}>
             <label htmlFor={id}>{label}</label>
             <br />
-            <textarea id={id} value={value} placeholder={placeholder} onChange={onChange} />
+            <textarea
+                className="border-radius-1"
+                id={id}
+                value={value}
+                placeholder={placeholder}
+                onChange={onChange}
+            />
         </div>
     );
 };

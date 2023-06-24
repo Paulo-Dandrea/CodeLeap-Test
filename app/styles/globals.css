@@ -81,15 +81,19 @@ svg {
  * ============================================= **/
 
 :root {
+    --fs-primary-heading: var(--size-600);
+
+    --fw-700: 700;
+
+    --clr-primary-400: #7695ec;
+    --clr-alert-400: #ff5151;
+    --clr-action-400: #47b960;
+
     --clr-neutral-400: #dddddd;
     --clr-neutral-400-rgb: 221, 221, 221;
     --clr-neutral-500: #ddd;
     --clr-neutral-600: #777777;
     --clr-neutral-600-rgb: 119, 119, 119;
-
-    --clr-primary-400: #7695ec;
-    --clr-alert-400: #ff5151;
-    --clr-action-400: #47b960;
 
     --size-300: 0.875rem; /* 14px */
     --size-400: 1rem; /* 16px */
@@ -97,10 +101,6 @@ svg {
     --size-500: 1.3rem; /* 20px */
     --size-600: 1.375rem; /* 22px */
     --size-700: 1.5625rem; /* 25px */
-
-    --fs-primary-heading: var(--size-600);
-
-    --fw-700: 700;
 }
 
 html,
@@ -149,4 +149,8 @@ button {
 
 .fs-450 {
     font-size: var(--size-450);
+}
+
+.border-radius-1 {
+    border-radius: 10px;
 }
