@@ -8,22 +8,17 @@ import { Modal } from "../Modal/Modal";
 import { useRouter } from "next/navigation";
 
 const Login = () => {
-    const dispatch = useDispatch();
-    const [username, setUsername] = useState("");
     const router = useRouter();
-
-
-
-
-
+    const dispatch = useDispatch();
     const { isLoggedIn } = useSelector((state) => state.auth);
+    const [username, setUsername] = useState("");
 
-    useEffect(() => {
-        if (isLoggedIn) {
-            router.push("/posts");
-        }
-    }, [isLoggedIn]);
 
+    // useEffect(() => {
+    //     if (isLoggedIn) {
+    //         router.push("/posts");
+    //     }
+    // }, [isLoggedIn]);
 
 
     const handleUsernameChange = (e: ChangeEvent<HTMLInputElement>) => {

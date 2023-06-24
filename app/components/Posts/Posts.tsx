@@ -9,10 +9,7 @@ import { Heading } from "../Heading/Heading";
 import styles from "./Posts.module.css";
 
 export const Posts = () => {
-    const router = useRouter();
     const dispatch = useDispatch();
-    const { isLoggedIn } = useSelector((state) => state.auth);
-
 
 
     const handleLogout = () => {

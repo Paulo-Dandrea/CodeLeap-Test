@@ -4,6 +4,7 @@ import { Roboto } from "next/font/google";
 
 import styles from "./styles/layout.module.css";
 import "./styles/globals.css";
+import { Router } from "@/lib/Router/Router";
 
 export const roboto = Roboto({
     variable: "--roboto",
@@ -17,7 +18,9 @@ export default function RootLayout(props: React.PropsWithChildren) {
             <html lang="en">
                 <body className={roboto.variable}>
                     <section className={styles.container}>
-                        <main>{props.children}</main>
+                        <Router>
+                            <main>{props.children}</main>
+                        </Router>
                     </section>
                 </body>
             </html>
