@@ -5,14 +5,11 @@ import { Heading } from "../Heading/Heading";
 import { Modal } from "./Modal";
 import { TextAreaWithRef, TextInputWithRef } from "../TextInput/TextInput";
 
+import { Refs } from "../Posts/types";
+
 interface EditModalProps {
     handleCancelClick: () => void;
     handleSaveClick: () => void;
-}
-
-interface Refs {
-    editedTitleRef: React.RefObject<HTMLInputElement> | null;
-    editedContentRef: React.RefObject<HTMLTextAreaElement> | null;
 }
 
 export const EditModal = forwardRef<Refs, EditModalProps>(
