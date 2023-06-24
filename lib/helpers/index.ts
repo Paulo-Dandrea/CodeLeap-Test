@@ -1,1 +1,0 @@
-export { formatTimeAgo } from "./formatTimeAgo";

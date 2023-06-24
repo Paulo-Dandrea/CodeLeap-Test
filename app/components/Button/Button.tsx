@@ -15,10 +15,10 @@ export const Button = ({ color, onClick, disabled, children }: ButtonProps) => {
         white: styles.white,
     };
 
-    const classes = [styles.btn, colors[color]].join(" ");
+    const classes = [styles.btn, colors[color], "border-radius-1"].join(" ");
 
     return (
-        <button type="button" onClick={onClick} disabled={disabled} className={classes}>
+        <button type="button" className={classes} onClick={onClick} disabled={disabled}>
             {children}
         </button>
     );

@@ -1,62 +1,62 @@
-import { ChangeEvent, useState } from "react";
-import { Button } from "../Button/Button";
-import { Card } from "../Card/Card";
-import { Heading } from "../Heading/Heading";
-import { TextArea, TextInput } from "../TextInput/TextInput";
-
-// import styles from "./CreatePost.module.css";
-import { createPost } from "./api";
+import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { shouldGetPostsSlice, useSelector } from "@/lib/redux";
 
+import { createPost } from "./api";
+
+import { Button } from "../Button/Button";
+import { Card } from "../Card/Card";
+import { Heading } from "../Heading/Heading";
+import { TextAreaWithRef, TextInputWithRef } from "../TextInput/TextInput";
+
 export const CreatePost = () => {
     const dispatch = useDispatch();
+
     const { userName } = useSelector((state) => state.auth);
 
-    const [title, setTitle] = useState("");
-    const [content, setContent] = useState("");
+    const titleRef = useRef<HTMLInputElement>(null);
+    const contentRef = useRef<HTMLTextAreaElement>(null);
 
     const handleButtonClick = () => {
+        const title = titleRef.current?.value;
+        const content = contentRef.current?.value;
+
         createPost({
             username: userName,
             created_datetime: new Date(),
-            title,
-            content,
+            title: title!,
+            content: content!,
         });
 
-        setTitle("");
-        setContent("");
         dispatch(shouldGetPostsSlice.actions.update());
-    };
 
-    const handleTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setTitle(e.target.value);
-    };
-
-    const handleContentChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        setContent(e.target.value);
+        if (titleRef.current) {
+            titleRef.current.value = "";
+        }
+        if (contentRef.current) {
+            contentRef.current.value = "";
+        }
     };
 
     return (
         <Card>
-            <div className={`flex flex-column gap-1 `}>
+            <div className="flex flex-column gap-1">
                 <Heading text="What's on your mind?" />
                 <form className="flex flex-column gap-1">
-                    <TextInput
-                        value={title}
+                    <TextInputWithRef
                         label="Title"
                         placeholder="Hello world"
                         id="title"
-                        onChange={handleTitleChange}
+                        ref={titleRef}
                     />
 
-                    <TextArea
-                        value={content}
+                    <TextAreaWithRef
+                        ref={contentRef}
                         label="Content"
                         id="content"
                         placeholder="Content here"
-                        onChange={handleContentChange}
                     />
+
                     <div className="margin-left-auto">
                         <Button color="primary" onClick={handleButtonClick}>
                             Create

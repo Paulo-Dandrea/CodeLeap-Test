@@ -1,23 +1,17 @@
 "use client";
-import { authSlice, useSelector } from "@/lib/redux";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+// import { authSlice } from "@/lib/redux";
+// import { useDispatch } from "react-redux";
+
 import { PostList } from "./PostList";
 import { CreatePost } from "./CreatePost";
 import { Heading } from "../Heading/Heading";
+
 import styles from "./Posts.module.css";
 
 export const Posts = () => {
-    const router = useRouter();
-    const dispatch = useDispatch();
-    const { isLoggedIn } = useSelector((state) => state.auth);
+    // TODO: future feature?
 
-    useEffect(() => {
-        if (!isLoggedIn) {
-            router.push("/login");
-        }
-    }, [isLoggedIn]);
+    // const dispatch = useDispatch();
 
     // const handleLogout = () => {
     //     dispatch(authSlice.actions.logout());

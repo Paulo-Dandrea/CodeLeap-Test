@@ -1,9 +1,8 @@
 .btn {
-    border-radius: 8px;
     color: white;
     display: inline-block;
-    font-weight: 700;
-    padding: 5px 20px;
+    font-weight: var(--fw-700);
+    padding: 5px var( --size-500);
     transition: all 0.1s ease-in-out;
 }
 

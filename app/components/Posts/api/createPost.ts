@@ -1,3 +1,5 @@
+import { CODELEAP_URL } from "@/lib/constants";
+
 interface CreatePostBody {
     username: string;
     created_datetime: Date;
@@ -7,7 +9,7 @@ interface CreatePostBody {
 
 export const createPost = async (body: CreatePostBody) => {
     try {
-        const response = await fetch("https://dev.codeleap.co.uk/careers/", {
+        await fetch(CODELEAP_URL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
