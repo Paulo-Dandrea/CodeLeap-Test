@@ -1,3 +1,5 @@
+import { CODELEAP_URL } from "@/lib/constants";
+
 interface updatePostBody {
     title: string;
     content: string;
@@ -5,7 +7,7 @@ interface updatePostBody {
 
 export const updatePost = async (id: number, body: updatePostBody) => {
     try {
-        const response = await fetch(`https://dev.codeleap.co.uk/careers/${id}/`, {
+        const response = await fetch(`${CODELEAP_URL}${id}/`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

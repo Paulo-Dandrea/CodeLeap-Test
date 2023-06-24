@@ -1,6 +1,8 @@
+import { CODELEAP_URL } from "@/lib/constants";
+
 export const deletePost = async (id: number) => {
     try {
-        const response = await fetch(`https://dev.codeleap.co.uk/careers/${id}/`, {
+        const response = await fetch(`${CODELEAP_URL}${id}/`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
