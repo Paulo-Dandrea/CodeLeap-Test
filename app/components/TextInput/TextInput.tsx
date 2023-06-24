@@ -1,36 +1,6 @@
 import { forwardRef } from "react";
+
 import styles from "./TextInput.module.css";
-
-interface TextInputProps {
-    value: string;
-    placeholder: string;
-    id: string;
-    label: string;
-}
-
-export const TextInput = ({
-    value,
-    onChange,
-    placeholder,
-    id,
-    label,
-}: TextInputProps & {
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}) => {
-    return (
-        <div className={styles["input-group"]}>
-            <label htmlFor={id}>{label}</label>
-            <br />
-            <input
-                type="text"
-                id={id}
-                value={value}
-                placeholder={placeholder}
-                onChange={onChange}
-            />
-        </div>
-    );
-};
 
 interface TextInputWithRefProps {
     placeholder: string;
@@ -56,20 +26,14 @@ export const TextInputWithRef = forwardRef<HTMLInputElement, TextInputWithRefPro
     }
 );
 
-export const TextArea = ({
-    value,
-    onChange,
-    placeholder,
-    id,
-    label,
-}: TextInputProps & {
-    onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-}) => {
-    return (
-        <div className={styles["input-group"]}>
-            <label htmlFor={id}>{label}</label>
-            <br />
-            <textarea id={id} value={value} placeholder={placeholder} onChange={onChange} />
-        </div>
-    );
-};
+export const TextAreaWithRef = forwardRef<HTMLTextAreaElement, TextInputWithRefProps>(
+    ({ placeholder, id, label }, ref) => {
+        return (
+            <div className={styles["input-group"]}>
+                <label htmlFor={id}>{label}</label>
+                <br />
+                <textarea ref={ref} className="border-radius-1" id={id} placeholder={placeholder} />
+            </div>
+        );
+    }
+);

@@ -1,16 +1,25 @@
-import { ChangeEvent, useState } from "react";
+import { Ref, useRef, useState } from "react";
 import { shouldGetPostsSlice, useDispatch } from "@/lib/redux";
+import { formatTimeAgo } from "@/lib/helpers";
+
 import { deletePost } from "./api";
 import { Post } from "./types";
+
 import { Card } from "../Card/Card";
 import { DeleteModal, EditModal } from "../Modal";
-import { formatTimeAgo } from "@/lib/helpers";
+
 import { updatePost } from "./api/updatePost";
 
 interface PostProps {
     item: Post;
     editable?: boolean;
 }
+
+interface Refs {
+    editedTitleRef: React.RefObject<HTMLInputElement> | null;
+    editedContentRef: React.RefObject<HTMLTextAreaElement> | null;
+}
+
 
 export const PostItem = ({
     item: { username, created_datetime, title, content, id },
@@ -20,8 +29,9 @@ export const PostItem = ({
 
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-    const [editedTitle, setEditedTitle] = useState("");
-    const [editedContent, setEditedContent] = useState("");
+
+    const editedTitleRef = useRef<HTMLInputElement>(null);
+    const editedContentRef = useRef<HTMLTextAreaElement>(null);
 
     const deleteMethods = {
         handleDeleteModalOpen: () => {
@@ -38,16 +48,13 @@ export const PostItem = ({
         handleEditModalOpen: () => {
             setIsEditModalOpen(true);
         },
-        handleTitleChange: (e: ChangeEvent<HTMLInputElement>) => {
-            setEditedTitle(e.target.value);
-        },
-        handleContentChange: (e: ChangeEvent<HTMLTextAreaElement>) => {
-            setEditedContent(e.target.value);
-        },
+        
         handleSaveClick: () => {
+            const title = editedTitleRef.current?.value;
+            const content = editedContentRef.current?.value;
             updatePost(id, {
-                title: editedTitle,
-                content: editedContent,
+                title: title!,
+                content: content!,
             });
 
             dispatch(shouldGetPostsSlice.actions.update());
@@ -83,10 +90,7 @@ export const PostItem = ({
 
                 {isEditModalOpen && (
                     <EditModal
-                        title={editedTitle}
-                        content={editedContent}
-                        handleTitleChange={editMethods.handleTitleChange}
-                        handleContentChange={editMethods.handleContentChange}
+                        ref={{ editedTitleRef, editedContentRef } as unknown as Ref<Refs>}
                         handleSaveClick={editMethods.handleSaveClick}
                         handleCancelClick={handleCancelClick}
                     />
