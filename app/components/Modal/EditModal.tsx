@@ -10,11 +10,6 @@ interface EditModalProps {
     handleSaveClick: () => void;
 }
 
-interface Refs {
-    editedTitleRef: React.RefObject<HTMLInputElement> | null;
-    editedContentRef: React.RefObject<HTMLTextAreaElement> | null;
-}
-
 export const EditModal = forwardRef<Refs, EditModalProps>(
     ({ handleCancelClick, handleSaveClick }, ref) => {
         const { editedTitleRef, editedContentRef } = ref as unknown as Refs;

@@ -5,3 +5,8 @@ export type Post = {
     title: string;
     content: string;
 };
+
+export interface Refs {
+    editedTitleRef: React.RefObject<HTMLInputElement> | null;
+    editedContentRef: React.RefObject<HTMLTextAreaElement> | null;
+}

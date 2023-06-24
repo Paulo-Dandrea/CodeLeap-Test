@@ -6,7 +6,7 @@ import { updatePost } from "./api/updatePost";
 
 import { formatTimeAgo } from "@/utils/formatTimeAgo";
 
-import { Post } from "./types";
+import { Post, Refs } from "./types";
 
 import { Card } from "../Card/Card";
 import { DeleteModal, EditModal } from "../Modal";
@@ -15,11 +15,6 @@ import { DeleteModal, EditModal } from "../Modal";
 interface PostProps {
     item: Post;
     editable?: boolean;
-}
-
-interface Refs {
-    editedTitleRef: React.RefObject<HTMLInputElement> | null;
-    editedContentRef: React.RefObject<HTMLTextAreaElement> | null;
 }
 
 

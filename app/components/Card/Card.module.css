@@ -9,9 +9,9 @@
     padding: var(--size-500);
 }
 
-.with-title > * {
+/* .with-title > * {
     padding: initial;
-}
+} */
 
 .with-title > *:where(:not(:first-child)) {
     padding: var(--size-500);
