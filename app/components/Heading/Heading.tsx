@@ -1,4 +1,5 @@
 import { EditButtons } from "../EditButtons/EditButtons";
+
 import style from "./Heading.module.css";
 
 interface HeadingProps {

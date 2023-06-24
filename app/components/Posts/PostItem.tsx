@@ -1,14 +1,16 @@
 import { Ref, useRef, useState } from "react";
 import { shouldGetPostsSlice, useDispatch } from "@/lib/redux";
-import { formatTimeAgo } from "@/lib/helpers";
 
 import { deletePost } from "./api";
+import { updatePost } from "./api/updatePost";
+
+import { formatTimeAgo } from "@/utils/formatTimeAgo";
+
 import { Post } from "./types";
 
 import { Card } from "../Card/Card";
 import { DeleteModal, EditModal } from "../Modal";
 
-import { updatePost } from "./api/updatePost";
 
 interface PostProps {
     item: Post;

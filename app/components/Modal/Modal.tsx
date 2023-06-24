@@ -1,8 +1,4 @@
-import { ChangeEvent, useState } from "react";
-import { Button } from "../Button/Button";
-import { Heading } from "../Heading/Heading";
 import styles from "./Modal.module.css";
-import { TextArea, TextInput } from "../TextInput/TextInput";
 
 interface ModalProps {
     children: React.ReactNode;
