@@ -7,7 +7,7 @@ interface updatePostBody {
 
 export const updatePost = async (id: number, body: updatePostBody) => {
     try {
-        const response = await fetch(`${CODELEAP_URL}${id}/`, {
+        await fetch(`${CODELEAP_URL}${id}/`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

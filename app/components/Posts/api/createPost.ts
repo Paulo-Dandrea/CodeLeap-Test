@@ -9,7 +9,7 @@ interface CreatePostBody {
 
 export const createPost = async (body: CreatePostBody) => {
     try {
-        const response = await fetch(CODELEAP_URL, {
+        await fetch(CODELEAP_URL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
