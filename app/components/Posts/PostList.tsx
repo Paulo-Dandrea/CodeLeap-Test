@@ -21,7 +21,9 @@ export const PostList = () => {
         <>
             {!posts.length ? (
                 // TODO: Loading component
-                <>Loading...</>
+                <div className="flex justify-content-center">
+                    <p>Loading...</p>
+                </div>
             ) : (
                 posts.map((item) => {
                     const editable = userName.toUpperCase() === item.username.toUpperCase();

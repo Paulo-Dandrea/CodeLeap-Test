@@ -29,6 +29,13 @@ export const CreatePost = () => {
         });
 
         dispatch(shouldGetPostsSlice.actions.update());
+
+        if (titleRef.current) {
+            titleRef.current.value = "";
+        }
+        if (contentRef.current) {
+            contentRef.current.value = "";
+        }
     };
 
     return (
