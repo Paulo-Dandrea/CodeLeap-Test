@@ -1,10 +1,11 @@
 /* Components */
+import Login from "./components/Login/Login";
 import { Posts } from "./components/Posts/Posts";
 
 export default function IndexPage() {
     return (
         <>
-            <Posts />
+            <Login />
         </>
     );
 }

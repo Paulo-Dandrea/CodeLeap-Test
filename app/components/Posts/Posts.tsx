@@ -13,19 +13,15 @@ export const Posts = () => {
     const dispatch = useDispatch();
     const { isLoggedIn } = useSelector((state) => state.auth);
 
-    useEffect(() => {
-        if (!isLoggedIn) {
-            router.push("/login");
-        }
-    }, [isLoggedIn]);
 
-    // const handleLogout = () => {
-    //     dispatch(authSlice.actions.logout());
-    // };
+
+    const handleLogout = () => {
+        dispatch(authSlice.actions.logout());
+    };
 
     return (
         <div className={styles.container}>
-            {/* <button onClick={handleLogout}>Logout</button> */}
+            <button onClick={handleLogout}>Logout</button>
             <div className="pb-1">
                 <div className={styles.header}>
                     <Heading text="CodeLeap Network" accent />

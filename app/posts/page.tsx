@@ -3,20 +3,21 @@ import { useSelector } from "@/lib/redux";
 import Login from "../components/Login/Login";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { Posts } from "../components/Posts/Posts";
 
-export default function LoginPage() {
+export default function PostsPage() {
     const router = useRouter();
     const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
     useEffect(() => {
-        if (isLoggedIn) {
+        if (!isLoggedIn) {
             router.push("/");
         }
     }, [isLoggedIn]);
 
     return (
         <>
-            <Login />
+            <Posts />
         </>
     );
 }
