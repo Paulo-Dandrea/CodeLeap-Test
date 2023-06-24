@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import styles from "./TextInput.module.css";
 
 interface TextInputProps {
@@ -21,7 +22,6 @@ export const TextInput = ({
             <label htmlFor={id}>{label}</label>
             <br />
             <input
-                className="border-radius-1"
                 type="text"
                 id={id}
                 value={value}
@@ -31,6 +31,30 @@ export const TextInput = ({
         </div>
     );
 };
+
+interface TextInputWithRefProps {
+    placeholder: string;
+    id: string;
+    label: string;
+}
+
+export const TextInputWithRef = forwardRef<HTMLInputElement, TextInputWithRefProps>(
+    ({ placeholder, id, label }, ref) => {
+        return (
+            <div className={styles["input-group"]}>
+                <label htmlFor={id}>{label}</label>
+                <br />
+                <input
+                    className="border-radius-1"
+                    type="text"
+                    id={id}
+                    ref={ref}
+                    placeholder={placeholder}
+                />
+            </div>
+        );
+    }
+);
 
 export const TextArea = ({
     value,
@@ -45,13 +69,7 @@ export const TextArea = ({
         <div className={styles["input-group"]}>
             <label htmlFor={id}>{label}</label>
             <br />
-            <textarea
-                className="border-radius-1"
-                id={id}
-                value={value}
-                placeholder={placeholder}
-                onChange={onChange}
-            />
+            <textarea id={id} value={value} placeholder={placeholder} onChange={onChange} />
         </div>
     );
 };
